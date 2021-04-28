@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  color: #fff;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Fira Code", monospace, Open Sans, sans-serif;
+  text-align: center;
+}
+
+.header {
+  padding: 2rem;
+  background-color: #121214;
+  height: 100vh;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: absolute;
+  top: calc(50%);
+  left: calc(50%);
+  transform: translate(-50%, calc(-50% - 1.5rem));
+}
+header h1 {
+  font-size: 2.25rem;
+  letter-spacing: 0.25rem;
+  font-weight: 400;
+  line-height: 3.5rem;
+}
+header h1 span {
+  color: #7d46ff;
+}
+header span {
+  color: #7d46ff;
+}
+header small {
+  letter-spacing: 0.0675rem;
+}
+header small a {
+  text-decoration: none;
+}
+header small span {
+  font-style: italic;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+}
+nav a {
+  margin-left: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.home-link {
+  font-size: 1.125rem;
+  font-weight: 200;
+  letter-spacing: 0.125rem;
+}
+
+.projetcts-link {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid #7d46ff;
+  border-radius: 1.5rem;
+  background-color: #7d46ff;
+  color: white;
+  transition: 0.2s background;
+}
+.projetcts-link:hover {
+  border-color: #5d33be;
+  background-color: #5d33be;
+  color: white;
+}
+
+section {
+  margin-top: 0;
+  height: 100vh;
+  background: #fff;
+}
+
+/*# sourceMappingURL=style.css.map */
