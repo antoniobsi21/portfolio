@@ -66,8 +66,8 @@ header h1 {
   line-height: 2.5rem;
   overflow: hidden;
 }
-header h1 span {
-  color: #7d46ff;
+header h1 #typewriter {
+  color: #fff;
 }
 header span {
   color: #7d46ff;
@@ -85,11 +85,8 @@ header small span {
   font-style: italic;
 }
 
-.welcome {
-  width: 0;
-  border-right: 2px solid #7d46ff;
-  white-space: nowrap;
-  animation: blinkTextCursor 1000ms steps(44) infinite, typewriter 3s steps(44) 1s 1 normal both;
+.blinking-cursor {
+  animation: 1s blink infinite;
 }
 
 section {
@@ -98,20 +95,12 @@ section {
   background: #fff;
 }
 
-@keyframes typewriter {
-  from {
-    width: 0;
+@keyframes blink {
+  from, to {
+    color: transparent;
   }
-  to {
-    width: 100%;
-  }
-}
-@keyframes blinkTextCursor {
-  from {
-    border-right-color: rgba(125, 70, 255, 0.75);
-  }
-  to {
-    border-right-color: transparent;
+  50% {
+    color: #7d46ff;
   }
 }
 @keyframes fade-in {
