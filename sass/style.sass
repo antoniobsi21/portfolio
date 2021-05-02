@@ -10,6 +10,9 @@ $primary-bg-color: #121214
     color: $primary-text-color
     box-sizing: border-box
 
+html
+    scroll-behavior: smooth
+
 body
     font-family: 'Fira Code', monospace, Open Sans, sans-serif
     text-align: center
@@ -23,8 +26,15 @@ body
     flex-direction: column
 
 nav
+    transition: 0.3s
+    position: fixed
+    top: 0
+    padding: 2rem
+    width: 100%
     display: flex
     justify-content: space-between
+
+    z-index: 1
 
     a
         margin-left: 0.75rem
@@ -33,7 +43,23 @@ nav
         letter-spacing: 0.1rem
         text-transform: uppercase
         text-decoration: none
-    
+
+.nav-transparent
+    background-color: rgba(0, 0, 0, 0)
+
+.nav-colored
+    background-color: rgba(255, 255, 255, 1)
+    border-bottom: 1px solid black
+    box-shadow: 0 1px 10px black
+    padding: 1.5rem
+
+    a
+        color: $primary-bg-color
+
+    .projetcts-link
+        color: $primary-text-color
+        
+
 .home-link
     font-size: 1.125rem
     font-weight: 200
@@ -70,8 +96,6 @@ header
         
     span
         color: $primary-color
-
-        
 
 
     small

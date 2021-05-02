@@ -1,6 +1,20 @@
+let nav = document.getElementById('navbar');
+let header = document.getElementById('header');
+
+window.onscroll = function() {
+    //console.log(document.documentElement.scrollTop);
+    if(document.body.scrollTop >= header.offsetHeight/1.6 || document.documentElement.scrollTop >= header.offsetHeight/1.6) {
+        nav.classList.add('nav-colored');
+        nav.classList.remove('nav-transparent');
+    } else {
+        nav.classList.add('nav-transparent');
+        nav.classList.remove('nav-colored');
+    }
+}
+
 let txt = 'Welcome to my <span><</span>portfolio<span>/></span>',
     i = 0,
-    speed = 60,
+    speed = 90,
     writingTag = false,
     tagOpen = false,
     closingTag = false,
@@ -11,7 +25,7 @@ let txt = 'Welcome to my <span><</span>portfolio<span>/></span>',
 
 function typeWriter() {
     if (i < txt.length) {
-        console.log(writingTag, tagOpen, closingTag, txt.charAt(i));
+        //console.log(writingTag, tagOpen, closingTag, txt.charAt(i));
 
         if(txt.charAt(i) === '<'){
             if(!tagOpen){
@@ -31,10 +45,7 @@ function typeWriter() {
             } else {
                 writingTag = false;
                 tagOpen = true;
-                speed = 60;
-
-                console.log(writingTag, tagOpen, closingTag);
-                console.log(tag);
+                speed = 90;
                 let newTag = document.createElement(tag);
                 tag = "";
                 el.appendChild(newTag);
@@ -43,7 +54,6 @@ function typeWriter() {
             }
             type = false;
         } else if(writingTag && type){
-            console.log(tag)
             tag += txt.charAt(i);
         } 
         if(!writingTag && !closingTag && type){
