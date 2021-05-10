@@ -15,20 +15,12 @@ body {
   text-align: center;
 }
 
-.header {
-  padding: 2rem;
-  background-color: #121214;
-  height: 100vh;
-  box-sizing: content-box;
-  display: flex;
-  flex-direction: column;
-}
-
 nav {
   transition: 0.3s;
   position: fixed;
+  min-height: 8vh;
   top: 0;
-  padding: 2rem 5rem;
+  padding: 1.5rem 5rem;
   width: 100%;
   display: flex;
   align-items: center;
@@ -45,39 +37,83 @@ nav a {
 }
 
 .nav-transparent {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(18, 18, 20, 0);
+}
+.nav-transparent .burger div {
+  background-color: #fff;
 }
 
 .nav-colored {
   background-color: white;
-  box-shadow: 0 1px 5px black;
-  padding: 1.5rem 5rem;
 }
 .nav-colored a {
   color: #121214;
 }
-.nav-colored .projetcts-link {
+.nav-colored .projects-link {
   color: #fff;
+}
+.nav-colored .burger div {
+  background-color: #121214;
 }
 
 .main-link {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 400;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.1rem;
 }
 
-.projetcts-link {
+.nav-links {
+  display: flex;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links .projects-link {
   padding: 0.75rem 1.5rem;
   border: 1px solid #7d46ff;
-  border-radius: 1.5rem;
+  border-radius: 2.5rem;
   background-color: #7d46ff;
   color: white;
-  transition: 0.2s background;
+  transition: 0.3s background;
 }
-.projetcts-link:hover {
+.nav-links .projects-link:hover {
   border-color: #5d33be;
   background-color: #5d33be;
   color: white;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  border-radius: 3px;
+  margin: 5px;
+  transition: all 0.3s ease;
+}
+
+.toggle .line1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.toggle .line2 {
+  opacity: 0;
+}
+
+.toggle .line3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+.header {
+  padding: 2rem;
+  background-color: #121214;
+  height: 100vh;
+  box-sizing: content-box;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
@@ -122,6 +158,61 @@ section {
   background: #fff;
 }
 
+@media screen and (max-width: 1120px) {
+  .nav-transparent {
+    background: #121214;
+  }
+}
+@media screen and (max-width: 768px) {
+  nav {
+    padding: 1rem 0.5rem;
+  }
+
+  .nav-transparent .nav-links {
+    background: #121214;
+  }
+  .nav-transparent .nav-links .projects-link {
+    color: #fff;
+  }
+
+  .nav-colored .nav-links {
+    background: #fff;
+  }
+
+  .nav-links {
+    position: absolute;
+    right: 0;
+    top: 8vh;
+    height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in;
+    width: 100%;
+  }
+  .nav-links li {
+    margin: auto;
+    opacity: 0;
+  }
+  .nav-links li a {
+    margin: auto;
+  }
+  .nav-links .projects-link {
+    padding: 0;
+    color: #121214;
+    border: none;
+    background-color: transparent;
+  }
+
+  .burger {
+    display: block;
+  }
+}
+.nav-active {
+  transform: translateX(0%);
+}
+
 @keyframes blink {
   from, to {
     color: transparent;
@@ -136,6 +227,16 @@ section {
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes navLinkFade {
+  from {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 

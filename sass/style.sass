@@ -17,19 +17,15 @@ body
     font-family: 'Fira Code', monospace, Open Sans, sans-serif
     text-align: center
 
-.header
-    padding: 2rem
-    background-color: $primary-bg-color
-    height: 100vh
-    box-sizing: content-box
-    display: flex
-    flex-direction: column
+
+// BEGIN OF NAVBAR
 
 nav
     transition: 0.3s
     position: fixed
+    min-height: 8vh
     top: 0
-    padding: 2rem 5rem
+    padding: 1.5rem 5rem
     width: 100%
     display: flex
     align-items: center
@@ -46,37 +42,77 @@ nav
         text-decoration: none
 
 .nav-transparent
-    background-color: rgba(0, 0, 0, 0)
+    background-color: rgba($primary-bg-color, 0)
+
+    .burger div
+        background-color: $primary-text-color
 
 .nav-colored
     background-color: rgba(255, 255, 255, 1)
-    box-shadow: 0 1px 5px black
-    padding: 1.5rem 5rem
+    //box-shadow: 0 1px 5px black
 
     a
         color: $primary-bg-color
 
-    .projetcts-link
+    .projects-link
         color: $primary-text-color
-        
+
+    .burger div
+        background-color: $primary-bg-color
 
 .main-link
-    font-size: 1.125rem
+    font-size: 1rem
     font-weight: 400
-    letter-spacing: 0.3rem
+    letter-spacing: 0.1rem
 
-.projetcts-link
-    padding: 0.75rem 1.5rem
-    border: 1px solid $primary-color
-    border-radius: 1.5rem
-    background-color: $primary-color
-    color: white
-    transition: 0.2s background
+.nav-links
+    display: flex
 
-    &:hover
-        border-color: $primary-hover-color
-        background-color: $primary-hover-color
+    li
+        list-style: none
+
+    .projects-link
+        padding: 0.75rem 1.5rem
+        border: 1px solid $primary-color
+        border-radius: 2.5rem
+        background-color: $primary-color
         color: white
+        transition: 0.3s background
+
+        &:hover
+            border-color: $primary-hover-color
+            background-color: $primary-hover-color
+            color: white
+
+.burger
+    display: none
+    cursor: pointer
+
+.burger div
+    width: 25px
+    height: 3px
+    border-radius: 3px
+    margin: 5px
+    transition: all 0.3s ease
+
+.toggle .line1
+    transform: rotate(-45deg) translate(-5px, 6px)
+
+.toggle .line2
+    opacity: 0
+    
+.toggle .line3
+    transform: rotate(45deg) translate(-5px, -6px)
+
+// END OF NAVBAR
+
+.header
+    padding: 2rem
+    background-color: $primary-bg-color
+    height: 100vh
+    box-sizing: content-box
+    display: flex
+    flex-direction: column
 
 header
     position: absolute
@@ -117,6 +153,65 @@ section
     height: 100vh
     background: #fff
 
+// MEDIA QUERIES
+$breakpoint-xsm: 370px
+$breakpoint-md: 768px
+$breakpoint-xl: 1120px
+
+@media screen and (max-width: $breakpoint-xl)
+    .nav-transparent
+        background: rgba($primary-bg-color, 1)
+
+@media screen and (max-width: $breakpoint-md)
+    nav
+        padding: 1rem 0.5rem
+
+    .nav-transparent
+        .nav-links
+            background: $primary-bg-color
+
+            .projects-link
+                color: $primary-text-color
+        
+
+    .nav-colored
+        .nav-links
+            background: $primary-text-color
+
+    .nav-links
+        position: absolute
+        right: 0
+        top: 8vh
+        height: 92vh
+        display: flex
+        flex-direction: column
+        justify-content: center
+        transform: translateX(100%)
+        transition: transform 0.3s ease-in
+        width: 100%
+
+        li
+            margin: auto
+            opacity: 0
+
+            a
+                margin: auto
+    
+        .projects-link
+            padding: 0
+            color: $primary-bg-color
+            border: none
+            background-color: transparent
+    
+    .burger
+        display: block
+
+.nav-active
+    transform: translateX(0%)
+
+
+// KEYFRAMES
+
 @keyframes blink
   from, to
       color: transparent
@@ -128,3 +223,11 @@ section
     opacity: 0
   100%
     opacity: 1
+
+@keyframes navLinkFade
+    from
+        opacity: 0
+        transform: translateX(3rem)
+    to
+        opacity: 1
+        transform: translateX(0)

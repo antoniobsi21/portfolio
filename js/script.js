@@ -71,4 +71,26 @@ function typeWriter() {
     }
   }
 
+let navSlide = () => {
+    let burger = document.querySelector('.burger');
+    let nav = document.querySelector('.nav-links');
+    let navLinks = document.querySelectorAll('.nav-links li');
+
+    burger.addEventListener('click', () => {
+        nav.classList.toggle('nav-active');
+
+        navLinks.forEach((navLink, index) => {
+            if(navLink.style.animation){
+                navLink.style.animation = '';
+            } else {
+                navLink.style.animation = `navLinkFade 0.5s ease forwards ${index/7 + 0.3}s`;
+            }
+        });
+
+        // Burger animation
+        burger.classList.toggle('toggle');
+    });
+}
+
 typeWriter();
+navSlide();
