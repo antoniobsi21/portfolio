@@ -21,7 +21,6 @@ body
 // BEGIN OF NAVBAR
 
 nav
-    transition: 0.3s
     position: fixed
     min-height: 8vh
     top: 0
@@ -34,7 +33,6 @@ nav
     z-index: 1
 
     a
-        margin-left: 0.75rem
         font-size: 0.75rem
         font-weight: 600
         letter-spacing: 0.1rem
@@ -71,6 +69,9 @@ nav
     li
         list-style: none
 
+        a
+            margin-left: 0.75rem
+            
     .projects-link
         padding: 0.75rem 1.5rem
         border: 1px solid $primary-color
@@ -135,7 +136,7 @@ header
 
 
     small
-        animation: fade-in 1s 4.44s 1 normal both
+        animation: fade-in-slide 0.7s 3.7s 1 normal both
         letter-spacing: 0.0675rem
         display: inline-block
         margin-top: 0.5rem
@@ -164,11 +165,19 @@ $breakpoint-xl: 1120px
 
 @media screen and (max-width: $breakpoint-md)
     nav
-        padding: 1rem 0.5rem
+        padding: 1rem 1rem 1rem 2rem
 
     .nav-transparent
         .nav-links
             background: $primary-bg-color
+
+            a
+                border-radius: 3rem
+
+                &:hover
+                    background: $primary-text-color
+                    color: $primary-bg-color
+                    transition: 0.3s linear
 
             .projects-link
                 color: $primary-text-color
@@ -178,6 +187,14 @@ $breakpoint-xl: 1120px
         .nav-links
             background: $primary-text-color
 
+            a
+                border-radius: 3rem
+
+                &:hover
+                    background: $primary-bg-color
+                    color: $primary-text-color
+                    transition: 0.3s linear
+
     .nav-links
         position: absolute
         right: 0
@@ -185,20 +202,24 @@ $breakpoint-xl: 1120px
         height: 92vh
         display: flex
         flex-direction: column
+        align-items: center
         justify-content: center
         transform: translateX(100%)
         transition: transform 0.3s ease-in
         width: 100%
+        
 
         li
-            margin: auto
+            margin: 0.5rem
             opacity: 0
 
             a
-                margin: auto
+                display: block
+                padding: 1rem 2rem
     
         .projects-link
-            padding: 0
+            padding: 1rem 2rem
+            background-color: #fff
             color: $primary-bg-color
             border: none
             background-color: transparent
@@ -218,13 +239,7 @@ $breakpoint-xl: 1120px
   50%
       color: $primary-color
 
-@keyframes fade-in 
-  0%
-    opacity: 0
-  100%
-    opacity: 1
-
-@keyframes navLinkFade
+@keyframes fade-in-slide
     from
         opacity: 0
         transform: translateX(3rem)
