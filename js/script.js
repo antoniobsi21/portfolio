@@ -1,3 +1,33 @@
+if ('IntersectionObserver' in window) {
+    const appearOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px 0px 0px'
+    }
+
+    const appearOnScroll = new IntersectionObserver(function(
+        sections,
+        appearOnScroll
+    ) {
+        sections.forEach(section => {
+            if(section.isIntersecting){
+                section.target.classList.add('slide-up');
+                appearOnScroll.unobserve(section.target);
+            } else {
+                return;
+            }
+        });        
+    },
+    appearOptions);
+
+    const sections = document.querySelectorAll('.section');
+    sections.forEach(section => {
+        section.classList.add('hide');
+        appearOnScroll.observe(section);
+    })
+} else {
+
+}
+
 let nav = document.getElementById('navbar');
 let header = document.getElementById('header');
 

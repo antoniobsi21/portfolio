@@ -95,14 +95,13 @@ nav
     margin: 5px
     transition: all 0.3s ease
 
-.toggle .line1
-    transform: rotate(-45deg) translate(-5px, 6px)
-
-.toggle .line2
-    opacity: 0
-    
-.toggle .line3
-    transform: rotate(45deg) translate(-5px, -6px)
+.toggle
+    .line1
+        transform: rotate(-45deg) translate(-5px, 6px)
+    .line2
+        opacity: 0
+    .line3
+        transform: rotate(45deg) translate(-5px, -6px)
 
 // END OF NAVBAR
 
@@ -118,7 +117,7 @@ header
     position: absolute
     top: calc(50%)
     left: calc(50%)
-    transform: translate(-50%,calc(-50% - 1.5rem))
+    transform: translate(-50%,calc(-50% - 1rem))
 
     h1
         font-size: 2.25rem
@@ -196,6 +195,14 @@ section
                 color: $purple
                 position: absolute
                 left: -1rem
+.hide
+    transform: translateY(2rem)
+    transition: 0.5s all ease
+    opacity: 0
+    
+.slide-up
+    opacity: 1
+    transform: translateY(0)
 
 
 .wrapper

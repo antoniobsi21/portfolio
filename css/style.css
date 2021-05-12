@@ -99,11 +99,9 @@ nav a {
 .toggle .line1 {
   transform: rotate(-45deg) translate(-5px, 6px);
 }
-
 .toggle .line2 {
   opacity: 0;
 }
-
 .toggle .line3 {
   transform: rotate(45deg) translate(-5px, -6px);
 }
@@ -121,7 +119,7 @@ header {
   position: absolute;
   top: calc(50%);
   left: calc(50%);
-  transform: translate(-50%, calc(-50% - 1.5rem));
+  transform: translate(-50%, calc(-50% - 1rem));
 }
 header h1 {
   font-size: 2.25rem;
@@ -201,6 +199,17 @@ section ul li::before {
   color: #7d46ff;
   position: absolute;
   left: -1rem;
+}
+
+.hide {
+  transform: translateY(2rem);
+  transition: 0.5s all ease;
+  opacity: 0;
+}
+
+.slide-up {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .wrapper {
